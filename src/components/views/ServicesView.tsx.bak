@@ -1,0 +1,705 @@
+import React from 'react';
+import { ViewType } from '../../types';
+import { MONETA_CHAIN_URL } from '../../config';
+import { Button } from '../ui/button';
+import { Network, ArrowRight, ExternalLink } from 'lucide-react';
+
+import { Footer } from "../layout/Footer";
+
+export function ServicesView({ onViewChange }: { onViewChange: (view: ViewType) => void }) {
+  return (
+    <div className="min-h-screen bg-[#050608] text-slate-300 font-sans selection:bg-cyan-900/50">
+      {/* NAVIGATION */}
+      <nav className="sticky top-0 z-50 border-b border-slate-800/50 bg-[#050608]/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center cursor-pointer" onClick={() => onViewChange('landing')}>
+              <img src="/assets/moneta-oracle-logo.png" alt="MONETA CHAIN ORACLE" className="h-[38px] md:h-[48px] w-auto object-contain block" />
+            </div>
+            <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+              <button onClick={() => onViewChange('dashboard')} className="hover:text-white transition-colors">Oracle</button>
+              <button onClick={() => onViewChange('services')} className="hover:text-white transition-colors">Services</button>
+              <button onClick={() => onViewChange('live_feeds')} className="hover:text-white transition-colors">Data Feeds</button>
+              <button onClick={() => onViewChange('developer_portal')} className="hover:text-white transition-colors">Developers</button>
+              <button onClick={() => onViewChange('security')} className="hover:text-white transition-colors">Security</button>
+              <button onClick={() => onViewChange('nodes')} className="hover:text-white transition-colors">Ecosystem</button>
+            </div>
+            <div className="flex items-center space-x-4">
+              <a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="hidden sm:block text-sm font-bold text-cyan-400 hover:text-cyan-300 tracking-widest transition-colors uppercase">
+                VISIT MONETA CHAIN &rarr;
+              </a>
+              <Button onClick={() => onViewChange('developer_portal')} className="bg-cyan-600 hover:bg-cyan-500 text-white border-0">Build with MONETA</Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main className="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+        <div className="space-y-32">
+          
+          {/* Header Section */}
+          <section className="space-y-8 text-center border-b border-slate-800/50 pb-24">
+            <h2 className="text-sm font-bold text-slate-500 tracking-widest uppercase mb-2">SERVICES</h2>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-white">
+              MONETA CHAIN ORACLE
+            </h1>
+            <p className="text-xl md:text-2xl text-cyan-400 font-mono tracking-widest uppercase">
+              ONE FEED. EVERY CHAIN. ABSOLUTE TRUTH.
+            </p>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto pt-6 leading-relaxed">
+              The data infrastructure layer built to connect blockchain applications with reliable, verifiable external information.
+            </p>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              MONETA Oracle provides a unified suite of oracle services designed for decentralized applications, financial protocols, real-world assets, AI systems, enterprises, and the wider MONETA CHAIN ecosystem.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-8">
+              <a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full sm:w-auto bg-cyan-600 hover:bg-cyan-500 text-white h-12 px-8 text-sm font-bold tracking-widest uppercase rounded-md shadow-lg shadow-cyan-500/20 transition-colors">
+                VISIT MONETA CHAIN &rarr;
+              </a>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto border-slate-700 text-slate-300 hover:text-white px-8" onClick={() => onViewChange('developer_portal')}>
+                Start Building
+              </Button>
+            </div>
+          </section>
+
+          {/* BUILDING IN PUBLIC - UNDER DEVELOPMENT */}
+          <section className="py-8 bg-cyan-950/20 border-y border-cyan-900/30">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex-1 space-y-3 text-center md:text-left">
+                <div className="inline-flex items-center space-x-2 border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 rounded-sm mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <span className="text-[10px] font-bold text-cyan-400 tracking-widest uppercase">Building in Public</span>
+                </div>
+                <h2 className="text-lg md:text-xl font-bold text-white">MONETA Oracle Services are currently under development.</h2>
+                <p className="text-sm text-slate-400 max-w-3xl leading-relaxed">
+                  The infrastructure described below represents our roadmap. 
+                  Features marked as <span className="font-mono text-[10px] px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded border border-slate-700 mx-1 whitespace-nowrap">[ UNDER DEVELOPMENT ]</span> or <span className="font-mono text-[10px] px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded border border-slate-700 mx-1 whitespace-nowrap">[ COMING SOON ]</span> are part of our active technical development phase towards testnet deployment.
+                </p>
+              </div>
+              <div className="flex flex-col items-center md:items-end text-center md:text-right md:border-l border-cyan-900/50 md:pl-8 py-2">
+                <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase mb-1">Services Status</span>
+                <span className="text-sm font-bold text-cyan-400 tracking-widest">IN DEVELOPMENT</span>
+                <span className="text-[10px] text-slate-500 font-mono mt-2">TESTNET Q4 2026</span>
+              </div>
+            </div>
+          </section>
+
+          {/* The Problem */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">THE PROBLEM</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">ORACLE INFRASTRUCTURE SHOULD NOT BE A COMPROMISE.</h3>
+            
+            <p className="text-slate-400 leading-relaxed text-lg">Modern blockchain applications depend on external information.</p>
+            
+            <div className="flex flex-wrap gap-3 font-mono text-sm tracking-widest uppercase text-slate-300">
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Prices.</span>
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Markets.</span>
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Assets.</span>
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Events.</span>
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Weather.</span>
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Sports.</span>
+              <span className="bg-slate-900/50 border border-slate-800 px-4 py-2 rounded">Enterprise information.</span>
+            </div>
+
+            <p className="text-white font-medium text-lg pt-2">But bringing that information on-chain creates difficult challenges.</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              {[
+                { title: 'DATA INTEGRITY', desc: 'If an external source provides incorrect, manipulated, or outdated information, applications can make incorrect decisions.' },
+                { title: 'FRAGMENTED DATA', desc: 'Different applications can depend on different providers, methodologies, and update mechanisms, potentially producing inconsistent results.' },
+                { title: 'LATENCY', desc: 'Applications requiring rapidly changing information need data that can be delivered quickly enough for their use case.' },
+                { title: 'ON-CHAIN COST', desc: 'Publishing frequent updates directly to blockchains can create significant transaction and infrastructure costs.' },
+                { title: 'CROSS-CHAIN COMPLEXITY', desc: 'Delivering verified information across different blockchain environments introduces additional verification and security requirements.' },
+                { title: 'ECONOMIC MANIPULATION', desc: 'Oracle updates can create opportunities for market manipulation, ordering advantages, or other forms of extractable value.' },
+                { title: 'CENTRALIZATION RISK', desc: 'Excessive dependence on a small number of operators or data providers can create additional points of failure.' }
+              ].map(item => (
+                <div key={item.title} className="p-5 border border-slate-800 rounded-lg bg-[#0a0b14]">
+                  <h4 className="font-bold text-white text-sm tracking-widest mb-2">{item.title}</h4>
+                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* Our Solution */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">OUR SOLUTION</h2>
+            <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 tracking-tight font-mono">ONE FEED. EVERY CHAIN. ABSOLUTE TRUTH.</h3>
+            
+            <p className="text-slate-400 leading-relaxed text-lg">
+              MONETA Oracle is designed as a unified data infrastructure layer that combines data sourcing, validation, aggregation, verification, proof, and delivery.
+            </p>
+            
+            <p className="text-white font-medium text-lg">Our architecture follows a simple principle:</p>
+            
+            <div className="bg-slate-900/30 border border-slate-800 rounded-lg p-6 overflow-x-auto">
+              <div className="flex items-center gap-2 sm:gap-4 font-mono text-sm text-cyan-400 tracking-widest min-w-max">
+                <span>SOURCE</span>
+                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <span>VERIFY</span>
+                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <span>CONSENSUS</span>
+                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <span>PROVE</span>
+                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <span>DELIVER</span>
+              </div>
+            </div>
+
+            <p className="text-slate-400 leading-relaxed text-lg pt-2">
+              Instead of treating oracle infrastructure as simply an API that sends information to a blockchain, MONETA Oracle is designed to make the entire data lifecycle more transparent and verifiable.
+            </p>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* Services Array */}
+          <div className="space-y-24">
+            
+            {/* 01 */}
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">01</span>
+                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— VERIFIED DATA FEEDS</h3>
+                </div>
+                <span className="self-start md:self-auto font-mono text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700 whitespace-nowrap ml-10 md:ml-0">
+                  [ UNDER DEVELOPMENT ]
+                </span>
+              </div>
+              <p className="text-white font-medium text-xl">Reliable data starts with reliable sourcing.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">
+                MONETA Oracle is designed to collect information from multiple relevant sources rather than depending unnecessarily on a single observation.
+              </p>
+              
+              <div className="bg-slate-900/50 border border-slate-800 rounded-lg p-8 my-8 font-mono text-sm tracking-widest flex flex-col items-center space-y-3 text-center">
+                <div className="text-slate-300">Source Collection</div>
+                <ArrowRight className="w-4 h-4 text-slate-600 rotate-90" />
+                <div className="text-slate-300">Normalization</div>
+                <ArrowRight className="w-4 h-4 text-slate-600 rotate-90" />
+                <div className="text-slate-300">Validation</div>
+                <ArrowRight className="w-4 h-4 text-slate-600 rotate-90" />
+                <div className="text-slate-300">Anomaly Detection</div>
+                <ArrowRight className="w-4 h-4 text-slate-600 rotate-90" />
+                <div className="text-slate-300">Aggregation</div>
+                <ArrowRight className="w-4 h-4 text-slate-600 rotate-90" />
+                <div className="text-slate-300">Verification</div>
+                <ArrowRight className="w-4 h-4 text-slate-600 rotate-90" />
+                <div className="text-cyan-400 font-bold">Publication</div>
+              </div>
+
+              <p className="text-slate-400">This architecture is designed to reduce the impact of stale, abnormal, inconsistent, or compromised observations.</p>
+              
+              <div className="pt-4">
+                <p className="text-sm font-bold text-slate-500 tracking-widest uppercase mb-3">Designed for:</p>
+                <div className="flex flex-wrap gap-2 text-sm text-slate-300">
+                  {['Crypto assets', 'Foreign exchange', 'Commodities', 'Real-world assets', 'Financial markets', 'Custom application data'].map(t => (
+                    <span key={t} className="px-3 py-1 bg-[#0a0b14] border border-slate-800 rounded-full">{t}</span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="pt-4">
+                <Button variant="link" className="text-cyan-400 hover:text-cyan-300 p-0 h-auto font-medium" onClick={() => onViewChange('live_feeds')}>
+                  Explore Data Feeds <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            </section>
+
+            {/* 02 */}
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">02</span>
+                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— HYBRID DATA DELIVERY</h3>
+                </div>
+                <span className="self-start md:self-auto font-mono text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700 whitespace-nowrap ml-10 md:ml-0">
+                  [ UNDER DEVELOPMENT ]
+                </span>
+              </div>
+              <p className="text-white font-medium text-xl">Pull when you need it. Push when it matters.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">Different applications require different data-delivery strategies. MONETA Oracle is designed around a hybrid model.</p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                <div className="p-5 border border-slate-800 rounded-lg">
+                  <h4 className="font-bold text-white tracking-widest text-sm mb-3">PULL</h4>
+                  <p className="text-slate-400 text-sm">Applications retrieve data when they need it. Useful for applications where on-demand access and flexible updates are important.</p>
+                </div>
+                <div className="p-5 border border-slate-800 rounded-lg">
+                  <h4 className="font-bold text-white tracking-widest text-sm mb-3">PUSH</h4>
+                  <p className="text-slate-400 text-sm">The oracle publishes updates according to predefined conditions. Useful for applications requiring automated updates or event-driven data delivery.</p>
+                </div>
+                <div className="p-5 border border-slate-800 rounded-lg bg-cyan-950/10">
+                  <h4 className="font-bold text-cyan-400 tracking-widest text-sm mb-3">HYBRID</h4>
+                  <p className="text-slate-400 text-sm">Applications can use both approaches depending on their requirements. The objective is to give developers control over how and when data reaches their applications.</p>
+                </div>
+              </div>
+            </section>
+
+            {/* 03 */}
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">03</span>
+                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— DATA AGGREGATION</h3>
+                </div>
+                <span className="self-start md:self-auto font-mono text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700 whitespace-nowrap ml-10 md:ml-0">
+                  [ COMING SOON ]
+                </span>
+              </div>
+              <p className="text-white font-medium text-xl">Multiple observations. One canonical result.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">External data can differ across sources. MONETA Oracle is designed to process multiple observations through defined aggregation mechanisms.</p>
+              
+              <div className="bg-[#0a0b14] border border-slate-800 rounded-lg p-6 font-mono text-sm text-slate-300 overflow-x-auto whitespace-pre">
+{`SOURCE A ─────┐
+SOURCE B ─────┤
+SOURCE C ─────┼──→ VALIDATION
+SOURCE D ─────┤
+SOURCE E ─────┘
+                    ↓
+               AGGREGATION
+                    ↓
+             CANONICAL VALUE`}
+              </div>
+
+              <p className="text-slate-400 leading-relaxed">Aggregation methodologies can be designed according to the specific data type and application requirements. The goal is to reduce unnecessary dependence on a single observation.</p>
+            </section>
+
+            {/* 04 */}
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">04</span>
+                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— CRYPTOGRAPHIC VERIFICATION</h3>
+                </div>
+                <span className="self-start md:self-auto font-mono text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700 whitespace-nowrap ml-10 md:ml-0">
+                  [ UNDER DEVELOPMENT ]
+                </span>
+              </div>
+              <p className="text-white font-medium text-xl">Don't simply trust the data. Verify the process.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">MONETA Oracle is designed to incorporate cryptographic mechanisms that can help applications verify the integrity and authenticity of oracle information.</p>
+              
+              <p className="text-slate-300">Depending on the implementation, these mechanisms may include:</p>
+              <ul className="list-disc pl-6 space-y-2 text-slate-400">
+                <li>Digital signatures</li>
+                <li>Cryptographic commitments</li>
+                <li>Merkle-based proofs</li>
+                <li>State proofs</li>
+                <li>Attestations</li>
+                <li>Zero-knowledge proofs</li>
+              </ul>
+              
+              <p className="text-slate-400 pt-4">The objective is to reduce unnecessary trust assumptions between data producers, oracle infrastructure, and consuming applications.</p>
+            </section>
+
+            {/* 05 */}
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">05</span>
+                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— ZK-ENABLED DATA PROCESSING</h3>
+                </div>
+                <span className="self-start md:self-auto font-mono text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700 whitespace-nowrap ml-10 md:ml-0">
+                  [ COMING SOON ]
+                </span>
+              </div>
+              <p className="text-white font-medium text-xl">Proof where proof provides value.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">MONETA Oracle is designed to explore zero-knowledge technologies for scalable verification and efficient data processing.</p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                <div className="p-4 border-l-2 border-slate-700">
+                  <h4 className="font-bold text-white text-sm tracking-widest mb-2">BATCHING</h4>
+                  <p className="text-slate-400 text-sm">Multiple data operations can potentially be processed together.</p>
+                </div>
+                <div className="p-4 border-l-2 border-slate-700">
+                  <h4 className="font-bold text-white text-sm tracking-widest mb-2">COMPUTATION VERIFICATION</h4>
+                  <p className="text-slate-400 text-sm">A proof can demonstrate that a defined computation followed specified protocol rules.</p>
+                </div>
+                <div className="p-4 border-l-2 border-slate-700">
+                  <h4 className="font-bold text-white text-sm tracking-widest mb-2">CROSS-CHAIN VERIFICATION</h4>
+                  <p className="text-slate-400 text-sm">Proof systems can potentially help other networks verify information without reproducing an entire computation.</p>
+                </div>
+                <div className="p-4 border-l-2 border-slate-700">
+                  <h4 className="font-bold text-white text-sm tracking-widest mb-2">EFFICIENCY</h4>
+                  <p className="text-slate-400 text-sm">Proof-based architectures may reduce repetitive verification work under appropriate conditions.</p>
+                </div>
+              </div>
+              
+              <div className="bg-slate-900/50 p-6 rounded-lg mt-6">
+                <p className="text-white mb-2">MONETA Oracle treats ZK technology as a tool—not a magic guarantee of real-world truth.</p>
+                <p className="text-slate-400">The quality of the underlying data remains fundamental.</p>
+              </div>
+            </section>
+
+            {/* 06 */}
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">06</span>
+                  <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— CROSS-CHAIN DATA DELIVERY</h3>
+                </div>
+                <span className="self-start md:self-auto font-mono text-[10px] px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700 whitespace-nowrap ml-10 md:ml-0">
+                  [ UNDER DEVELOPMENT ]
+                </span>
+              </div>
+              <p className="text-white font-medium text-xl">Verified data should move with the applications that use it.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">MONETA Oracle is being designed with multi-chain infrastructure in mind. The architecture can support chain-specific verification and delivery mechanisms rather than assuming every blockchain has identical capabilities.</p>
+              
+              <div className="flex flex-col sm:flex-row gap-8 pt-4">
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-slate-500 tracking-widest uppercase mb-4">Potential mechanisms include:</p>
+                  <ul className="space-y-3">
+                    {['Native integrations', 'Light-client verification', 'State proofs', 'Cryptographic attestations', 'Chain-specific adapters', 'Optimized message delivery'].map(item => (
+                      <li key={item} className="flex items-center gap-3 text-slate-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex-1 bg-[#0a0b14] border border-slate-800 p-6 rounded-lg flex flex-col justify-center">
+                  <h4 className="font-bold text-cyan-400 tracking-widest uppercase mb-3">OUR OBJECTIVE</h4>
+                  <p className="text-slate-300">Minimize unnecessary trust assumptions while making verified data accessible across supported blockchain environments.</p>
+                </div>
+              </div>
+            </section>
+
+            {/* 07, 08 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* 07 */}
+              <section className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">07</span>
+                  <h3 className="text-xl font-bold text-white tracking-widest uppercase">— FIRST-PARTY DATA PROVIDERS</h3>
+                </div>
+                <p className="text-white font-medium">Data providers with responsibility.</p>
+                <p className="text-slate-400">MONETA Oracle can support first-party data providers that operate according to defined network rules.</p>
+                <p className="text-slate-400">Depending on the final protocol design, providers may participate through mechanisms involving authentication, reputation, staking, economic penalties, and data-quality requirements.</p>
+                <p className="text-slate-400 border-l-2 border-cyan-500 pl-4 py-1 italic">Bad data should not simply be ignored. The network should have mechanisms for identifying and responding to protocol-defined violations.</p>
+              </section>
+
+              {/* 08 */}
+              <section className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">08</span>
+                  <h3 className="text-xl font-bold text-white tracking-widest uppercase">— OEV-AWARE INFRASTRUCTURE</h3>
+                </div>
+                <p className="text-white font-medium">Data updates should not become an unfair advantage.</p>
+                <p className="text-slate-400">Oracle updates can influence financial applications and markets. MONETA Oracle therefore considers ordering, timing, and information asymmetry as part of oracle-system design.</p>
+                <p className="text-slate-400">Potential design approaches include controlled publication, batched updates, commitments, and application-specific update mechanisms.</p>
+              </section>
+            </div>
+
+            {/* 09 */}
+            <section className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="text-cyan-500 font-mono font-bold text-xl">09</span>
+                <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— CUSTOM ORACLE SERVICES</h3>
+              </div>
+              <p className="text-white font-medium text-xl">Every application has different data requirements.</p>
+              <p className="text-slate-400 leading-relaxed text-lg">MONETA Oracle is not limited to one category of data. Developers and organizations can build specialized feeds around approved data sources and defined verification requirements.</p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
+                {[
+                  { title: 'CUSTOM PRICE FEEDS', desc: 'Application-specific market data.' },
+                  { title: 'RWA FEEDS', desc: 'Data associated with real-world assets.' },
+                  { title: 'EVENT FEEDS', desc: 'External events that need to become machine-readable.' },
+                  { title: 'WEATHER FEEDS', desc: 'Environmental and weather information.' },
+                  { title: 'SPORTS FEEDS', desc: 'Sports events and results.' },
+                  { title: 'ENTERPRISE FEEDS', desc: 'Institutional and business information.' },
+                  { title: 'CUSTOM DATA', desc: 'Purpose-built data feeds for specialized applications.' }
+                ].map(item => (
+                  <div key={item.title} className="p-4 bg-slate-900/30 border border-slate-800 rounded-lg">
+                    <h4 className="font-bold text-white text-xs tracking-widest mb-2">{item.title}</h4>
+                    <p className="text-slate-500 text-xs">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 10, 11 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* 10 */}
+              <section className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">10</span>
+                  <h3 className="text-xl font-bold text-white tracking-widest uppercase">— DEFI ORACLE INFRASTRUCTURE</h3>
+                </div>
+                <p className="text-white font-medium">Data for decentralized finance.</p>
+                <p className="text-slate-400">MONETA Oracle is designed to support applications that depend on accurate and timely financial information.</p>
+                <p className="text-slate-400">Potential use cases include lending, collateralization, derivatives, stablecoins, and asset management.</p>
+                <p className="text-slate-400 border-l-2 border-slate-700 pl-4 py-1 italic">The oracle becomes a critical data layer between external markets and on-chain financial logic.</p>
+              </section>
+
+              {/* 11 */}
+              <section className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">11</span>
+                  <h3 className="text-xl font-bold text-white tracking-widest uppercase">— RWA DATA INFRASTRUCTURE</h3>
+                </div>
+                <p className="text-white font-medium">Bring real-world assets closer to programmable finance.</p>
+                <p className="text-slate-400">Real-world assets require information that does not naturally originate on a blockchain.</p>
+                <p className="text-slate-400">MONETA Oracle can provide infrastructure for approved data relating to asset valuations, market conditions, external events, and ownership information.</p>
+              </section>
+            </div>
+
+            {/* 12 */}
+            <section className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="text-cyan-500 font-mono font-bold text-xl">12</span>
+                <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— MONETA CHAIN NATIVE ORACLE</h3>
+              </div>
+              <p className="text-white font-medium text-xl">Built for the MONETA ecosystem.</p>
+              <p className="text-slate-400 leading-relaxed text-lg mb-8">MONETA Oracle is designed to work closely with MONETA CHAIN.</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="bg-[#0a0b14] border border-slate-800 rounded-lg p-8 font-mono text-sm tracking-widest flex flex-col items-center space-y-4 text-center">
+                  <div className="text-slate-500">REAL WORLD</div>
+                  <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                  <div className="text-cyan-400 border border-cyan-500/30 px-6 py-2 rounded-full bg-cyan-950/20">MONETA ORACLE</div>
+                  <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                  <div className="text-white border border-slate-700 px-6 py-2 rounded-full">VERIFIED DATA LAYER</div>
+                  <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                  <div className="text-white border border-slate-700 px-6 py-2 rounded-full">MONETA CHAIN</div>
+                  <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                  <div className="text-slate-300">SMART CONTRACTS</div>
+                  <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                  <div className="text-slate-500">APPLICATIONS</div>
+                </div>
+
+                <div className="space-y-6">
+                  <h4 className="font-bold text-white tracking-widest uppercase">This creates a clear infrastructure relationship:</h4>
+                  <div>
+                    <h5 className="text-cyan-400 font-bold mb-1">MONETA CHAIN</h5>
+                    <p className="text-slate-400">Execution and blockchain infrastructure.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-cyan-400 font-bold mb-1">MONETA ORACLE</h5>
+                    <p className="text-slate-400">External data and verification infrastructure.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-white font-bold mb-1">MONETA ECOSYSTEM</h5>
+                    <p className="text-slate-400">Applications powered by both.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 13, 14 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* 13 */}
+              <section className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">13</span>
+                  <h3 className="text-xl font-bold text-white tracking-widest uppercase">— FOR DEVELOPERS</h3>
+                </div>
+                <p className="text-white font-medium">Everything you need to build with external data.</p>
+                <p className="text-slate-400">MONETA Oracle is being designed with developer accessibility as a core requirement.</p>
+                <ul className="grid grid-cols-2 gap-2 text-sm text-slate-300 pt-2">
+                  <li>• Discover feeds</li>
+                  <li>• Read documentation</li>
+                  <li>• Query data</li>
+                  <li>• Verify responses</li>
+                  <li>• Integrate smart contracts</li>
+                  <li>• Monitor feed health</li>
+                </ul>
+                <div className="bg-slate-900/50 p-4 rounded mt-4">
+                  <p className="text-white text-sm font-medium">The complexity belongs inside the infrastructure. The developer experience should remain straightforward.</p>
+                </div>
+                <div className="pt-2 flex flex-col space-y-2">
+                  <Button variant="link" className="text-cyan-400 hover:text-cyan-300 p-0 h-auto font-medium self-start" onClick={() => onViewChange('developer_portal')}>
+                    Start Building <ArrowRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </div>
+              </section>
+
+              {/* 14 */}
+              <section className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-cyan-500 font-mono font-bold text-xl">14</span>
+                  <h3 className="text-xl font-bold text-white tracking-widest uppercase">— FOR ENTERPRISES</h3>
+                </div>
+                <p className="text-white font-medium">Reliable data infrastructure for serious applications.</p>
+                <p className="text-slate-400">Organizations can use oracle infrastructure to connect approved external information with blockchain systems.</p>
+                <p className="text-slate-400">Potential applications include financial infrastructure, asset tokenization, supply chains, compliance systems, and enterprise automation.</p>
+                <p className="text-slate-400 border-l-2 border-slate-700 pl-4 py-1 italic text-sm">Enterprise integrations can be designed around appropriate privacy, authentication, availability, and verification requirements.</p>
+              </section>
+            </div>
+
+            {/* 15 */}
+            <section className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="text-cyan-500 font-mono font-bold text-xl">15</span>
+                <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— SERVICE ARCHITECTURE</h3>
+              </div>
+              <p className="text-white font-medium text-xl">One infrastructure. Multiple capabilities.</p>
+              
+              <div className="bg-[#0a0b14] border border-slate-800 rounded-lg p-6 sm:p-10 font-mono text-sm overflow-x-auto">
+                <pre className="text-cyan-400">
+{`┌──────────────────────────────────────┐
+│          MONETA ORACLE               │
+├──────────────────────────────────────┤
+│                                      │
+│  DATA SOURCES                        │
+│       ↓                              │
+│  INGESTION                           │
+│       ↓                              │
+│  VALIDATION                          │
+│       ↓                              │
+│  AGGREGATION                         │
+│       ↓                              │
+│  CONSENSUS / ATTESTATION             │
+│       ↓                              │
+│  CRYPTOGRAPHIC VERIFICATION          │
+│       ↓                              │
+│  PROOF / SETTLEMENT                  │
+│       ↓                              │
+│  CROSS-CHAIN DELIVERY                │
+│                                      │
+└──────────────────────────────────────┘`}
+                </pre>
+              </div>
+
+              <div className="grid grid-cols-5 gap-2 pt-4 text-center font-bold tracking-widest uppercase text-slate-300 text-xs sm:text-sm">
+                <div className="bg-slate-900/50 py-3 rounded">Collect.</div>
+                <div className="bg-slate-900/50 py-3 rounded">Validate.</div>
+                <div className="bg-slate-900/50 py-3 rounded">Agree.</div>
+                <div className="bg-slate-900/50 py-3 rounded">Prove.</div>
+                <div className="bg-slate-900/50 py-3 rounded">Deliver.</div>
+              </div>
+            </section>
+
+            {/* 16 */}
+            <section className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="text-cyan-500 font-mono font-bold text-xl">16</span>
+                <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— WHY MONETA ORACLE</h3>
+              </div>
+              <p className="text-white font-medium text-xl">Designed for the problems that matter.</p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 pt-4">
+                {[
+                  { title: 'UNIFIED', desc: 'One infrastructure layer designed to reduce unnecessary data fragmentation.' },
+                  { title: 'VERIFIABLE', desc: 'Data and processing are designed around mechanisms that can provide independent verification.' },
+                  { title: 'MULTI-CHAIN', desc: 'Built with multiple blockchain environments in mind.' },
+                  { title: 'MODULAR', desc: 'Individual components can evolve without requiring the entire system to be redesigned.' },
+                  { title: 'FLEXIBLE', desc: 'Pull, push, and hybrid delivery models can serve different applications.' },
+                  { title: 'SCALABLE', desc: 'Aggregation and proof technologies can be used where they provide meaningful efficiency benefits.' },
+                  { title: 'MONETA-NATIVE', desc: 'Designed to become an important data layer for MONETA CHAIN.' }
+                ].map(item => (
+                  <div key={item.title}>
+                    <h4 className="font-bold text-white tracking-widest text-sm mb-1">{item.title}</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 17 */}
+            <section className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="text-cyan-500 font-mono font-bold text-xl">17</span>
+                <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— OUR COMMITMENT</h3>
+              </div>
+              <p className="text-white font-medium text-xl">We don't believe trust should be a black box.</p>
+              
+              <div className="bg-slate-900/30 p-8 rounded-lg border border-slate-800">
+                <p className="text-slate-300 text-lg mb-6">MONETA Oracle is being built around a simple principle: <strong className="text-white font-bold">Make the system as verifiable as possible.</strong></p>
+                
+                <p className="text-sm font-bold text-slate-500 tracking-widest uppercase mb-4">That means pursuing:</p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm text-cyan-400 font-mono">
+                  <div>Transparent architecture</div>
+                  <div>Clear protocol rules</div>
+                  <div>Independent validation</div>
+                  <div>Cryptographic integrity</div>
+                  <div>Security testing</div>
+                  <div>Auditable implementations</div>
+                  <div>Measurable performance</div>
+                  <div>Continuous improvement</div>
+                </div>
+              </div>
+              <p className="text-slate-400 italic">We will measure the system against real-world performance and security rather than relying on marketing claims.</p>
+            </section>
+
+            {/* 18 */}
+            <section className="space-y-6 text-center py-12">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <span className="text-cyan-500 font-mono font-bold text-xl">18</span>
+                <h3 className="text-2xl font-bold text-white tracking-widest uppercase">— THE FUTURE OF ORACLE INFRASTRUCTURE</h3>
+              </div>
+              
+              <div className="max-w-3xl mx-auto space-y-6 text-slate-400 text-lg">
+                <p className="text-xl text-white font-medium">The next generation of blockchain applications will require more than transactions. They will require access to information.</p>
+                
+                <div className="flex flex-wrap justify-center gap-3 font-mono text-sm tracking-widest uppercase text-cyan-400 py-4">
+                  <span>Financial markets.</span>
+                  <span>Real-world assets.</span>
+                  <span>Artificial intelligence.</span>
+                  <span>Physical-world events.</span>
+                  <span>Enterprise systems.</span>
+                  <span>Environmental data.</span>
+                  <span>Global economic activity.</span>
+                </div>
+
+                <p>MONETA Oracle is being built to provide the infrastructure connecting that information to blockchain applications.</p>
+              </div>
+            </section>
+
+          </div>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* Final Statement / CTA */}
+          <section className="text-center pt-16 pb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-8">
+              THE ERA OF FRAGMENTED DATA IS ENDING.
+            </h2>
+            
+            <div className="space-y-2 text-slate-400 text-lg max-w-2xl mx-auto mb-12">
+              <p>You should not have to choose between:</p>
+              <div className="text-white font-medium py-4 space-y-2">
+                <p>Speed and verification.</p>
+                <p>Coverage and security.</p>
+                <p>Flexibility and reliability.</p>
+                <p>Cross-chain access and strong verification.</p>
+              </div>
+              <p>MONETA Oracle is building toward a different model.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-sm font-bold tracking-widest uppercase text-cyan-400 mb-16">
+              <div className="bg-[#0a0b14] border border-slate-800 p-4 rounded">A unified data layer.</div>
+              <div className="bg-[#0a0b14] border border-slate-800 p-4 rounded">A verification-first architecture.</div>
+              <div className="bg-[#0a0b14] border border-slate-800 p-4 rounded">A multi-chain future.</div>
+              <div className="bg-[#0a0b14] border border-slate-800 p-4 rounded">A developer-focused infrastructure.</div>
+              <div className="bg-[#0a0b14] border border-slate-800 p-4 rounded">A data network designed for the next generation of decentralized applications.</div>
+            </div>
+
+            <div className="space-y-6 mb-12">
+              <div className="text-2xl font-bold text-white tracking-tighter">
+                ONE FEED. EVERY CHAIN. ABSOLUTE TRUTH.
+              </div>
+              <div className="text-cyan-400 font-mono text-sm tracking-widest uppercase">
+                MONETA CHAIN ORACLE
+              </div>
+              <p className="text-slate-400">The data layer connecting blockchain to the world.</p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <Button size="lg" className="w-full sm:w-auto bg-white hover:bg-slate-200 text-black px-8" onClick={() => onViewChange('developer_portal')}>
+                Start Building
+              </Button>
+              <a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full sm:w-auto border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 h-12 px-8 text-sm font-bold tracking-widest uppercase rounded-md transition-colors">
+                VISIT MONETA CHAIN &rarr;
+              </a>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      {/* FOOTER */}
+      <Footer onViewChange={onViewChange} />
+    </div>
+  );
+}

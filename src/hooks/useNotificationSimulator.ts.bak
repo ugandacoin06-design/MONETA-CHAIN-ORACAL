@@ -1,0 +1,71 @@
+import { useEffect } from 'react';
+import { useNotifications } from '../contexts/NotificationContext';
+import { ViewType } from '../types';
+
+export function useNotificationSimulator(currentView: ViewType) {
+  const { addNotification } = useNotifications();
+
+  useEffect(() => {
+    // We only simulate specific notifications when we're in specific views for this demo
+    let timeoutIds: NodeJS.Timeout[] = [];
+
+    if (currentView === 'operator') {
+      // Simulate performance warning
+      timeoutIds.push(
+        setTimeout(() => {
+          addNotification({
+            type: 'warning',
+            title: 'Latency Spike Detected',
+            message: 'Your node (MNT-NODE-01) is experiencing higher than normal latency (Avg: 85ms). Please check your connection.',
+          });
+        }, 3000)
+      );
+
+      // Simulate slashing danger
+      timeoutIds.push(
+        setTimeout(() => {
+          addNotification({
+            type: 'danger',
+            title: 'Critical: Slashing Warning',
+            message: 'A discrepancy was found in the reported value for EUR/USD. Consensus conflict rate is above 0.003%.',
+          });
+        }, 12000)
+      );
+    } else if (currentView === 'operator') {
+      // Simulate admin notifications
+      timeoutIds.push(
+        setTimeout(() => {
+          addNotification({
+            type: 'info',
+            title: 'Proposal Passed',
+            message: 'A new oracle node (MNT-NODE-08) has been approved by the consortium and is booting up.',
+          });
+        }, 2000)
+      );
+
+      timeoutIds.push(
+        setTimeout(() => {
+          addNotification({
+            type: 'danger',
+            title: 'Security Alert',
+            message: 'Unauthorized access attempt detected from multiple IP addresses. Threshold defensive parameter engaged.',
+          });
+        }, 8000)
+      );
+    } else if (currentView === 'dashboard') {
+      timeoutIds.push(
+        setTimeout(() => {
+          addNotification({
+            type: 'info',
+            title: 'System Anchor',
+            message: 'New batch of 14,000 data points successfully anchored on Moneta mainnet at block 8,291,403.',
+          });
+        }, 5000)
+      );
+    }
+
+    return () => {
+      timeoutIds.forEach(clearTimeout);
+    };
+  }, [currentView, addNotification]);
+}

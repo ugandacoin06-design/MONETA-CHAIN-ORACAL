@@ -1,0 +1,509 @@
+import React from 'react';
+import { ViewType } from '../../types';
+import { MONETA_CHAIN_URL } from '../../config';
+import { Button } from '../ui/button';
+import { Network, ArrowRight, ExternalLink } from 'lucide-react';
+
+import { Footer } from "../layout/Footer";
+
+export function AboutView({ onViewChange }: { onViewChange: (view: ViewType) => void }) {
+  return (
+    <div className="min-h-screen bg-[#050608] text-slate-300 font-sans selection:bg-cyan-900/50">
+      {/* 1. NAVIGATION */}
+      <nav className="sticky top-0 z-50 border-b border-slate-800/50 bg-[#050608]/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center cursor-pointer" onClick={() => onViewChange('landing')}>
+              <img src="/assets/moneta-oracle-logo.png" alt="MONETA CHAIN ORACLE" className="h-[38px] md:h-[48px] w-auto object-contain block" />
+            </div>
+            <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+              <button onClick={() => onViewChange('dashboard')} className="hover:text-white transition-colors">Oracle</button>
+              <button onClick={() => onViewChange('services')} className="hover:text-white transition-colors">Services</button>
+              <button onClick={() => onViewChange('live_feeds')} className="hover:text-white transition-colors">Data Feeds</button>
+              <button onClick={() => onViewChange('developer_portal')} className="hover:text-white transition-colors">Developers</button>
+              <button onClick={() => onViewChange('security')} className="hover:text-white transition-colors">Security</button>
+              <button onClick={() => onViewChange('nodes')} className="hover:text-white transition-colors">Ecosystem</button>
+            </div>
+            <div className="flex items-center space-x-4">
+              <a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="hidden sm:block text-sm font-bold text-cyan-400 hover:text-cyan-300 tracking-widest transition-colors uppercase">
+                VISIT MONETA CHAIN &rarr;
+              </a>
+              <Button onClick={() => onViewChange('developer_portal')} className="bg-cyan-600 hover:bg-cyan-500 text-white border-0">Build with MONETA</Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main className="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+        <div className="space-y-32">
+          
+          {/* Header Section */}
+          <section className="space-y-8 text-center border-b border-slate-800/50 pb-24">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-white">
+              MONETA CHAIN ORACLE
+            </h1>
+            <p className="text-xl md:text-2xl text-cyan-400 font-mono tracking-widest uppercase">
+              ONE FEED. EVERY CHAIN. ABSOLUTE TRUTH.
+            </p>
+          </section>
+
+          {/* About Section */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-bold text-white tracking-tight">About MONETA Oracle</h2>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>MONETA Oracle is a data infrastructure initiative within the MONETA CHAIN ecosystem, designed to connect blockchain applications with reliable, verifiable information from the world beyond the chain.</p>
+              <p>Blockchains are exceptionally good at recording and verifying transactions. But smart contracts cannot independently observe market prices, weather conditions, sports events, financial information, real-world assets, or other external events.</p>
+              <p>MONETA Oracle is being built to bridge that information gap.</p>
+              <p>Our goal is to create a unified oracle infrastructure where data can be collected from diverse sources, validated, aggregated, cryptographically secured, and delivered to blockchain applications across supported networks.</p>
+              <p className="font-mono text-cyan-400 tracking-widest uppercase pt-4">One feed. Every chain. Absolute truth.</p>
+            </div>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* Vision Section */}
+          <section className="space-y-6">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">OUR VISION</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">A world where blockchain applications can verify the information they depend on.</h3>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>We envision an open data infrastructure where decentralized applications are no longer forced to choose between fragmented data sources, high costs, limited chain coverage, and difficult cross-chain infrastructure.</p>
+              <p>MONETA Oracle aims to make reliable external data accessible across blockchain ecosystems through a unified and verification-focused architecture.</p>
+              <p>We believe the future of decentralized applications depends not only on better blockchains, but also on better ways of connecting those blockchains to reality.</p>
+            </div>
+          </section>
+
+          {/* Mission Section */}
+          <section className="space-y-6">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">OUR MISSION</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">Build a more unified, verifiable, and accessible oracle infrastructure.</h3>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>Our mission is to develop an oracle layer that combines:</p>
+              <ul className="list-disc pl-6 space-y-2 text-slate-300">
+                <li>Multi-source data collection</li>
+                <li>Independent validation</li>
+                <li>Robust aggregation</li>
+                <li>Decentralized participation</li>
+                <li>Cryptographic integrity</li>
+                <li>Efficient data delivery</li>
+                <li>Cross-chain compatibility</li>
+                <li>Flexible pull and push delivery models</li>
+                <li>Advanced proof systems where appropriate</li>
+              </ul>
+              <p className="pt-4">We are building toward an infrastructure where developers can obtain the external data their applications require without having to create an entire oracle network themselves.</p>
+            </div>
+          </section>
+
+          {/* Why We Exist Section */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">WHY WE EXIST</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">Blockchains can verify what happens on-chain. They cannot see everything happening outside the chain.</h3>
+            <p className="text-slate-400 leading-relaxed text-lg">A decentralized application may depend on information such as:</p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                { title: 'Market prices', desc: 'Crypto, foreign exchange, commodities, and other financial data.' },
+                { title: 'Real-world assets', desc: 'Information associated with physical and financial assets.' },
+                { title: 'Weather', desc: 'Environmental information required by applications and markets.' },
+                { title: 'Events', desc: 'Verifiable information about external events.' },
+                { title: 'Sports', desc: 'Results and event information.' },
+                { title: 'Enterprise data', desc: 'Information supplied by institutions and organizations.' },
+                { title: 'Custom data', desc: 'Application-specific information that needs to reach a blockchain.' }
+              ].map(item => (
+                <div key={item.title} className="p-4 border border-slate-800 rounded-lg bg-[#0a0b14]">
+                  <h4 className="font-bold text-white mb-2">{item.title}</h4>
+                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-slate-400 leading-relaxed text-lg pt-4">Without an appropriate oracle layer, applications can become dependent on data sources that may be fragmented, delayed, unavailable, manipulated, or difficult to verify.</p>
+            <p className="text-white font-medium text-lg">MONETA Oracle exists to address these infrastructure challenges.</p>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* The Oracle Problem */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">THE ORACLE PROBLEM</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">External data is powerful. Unverified external data is a risk.</h3>
+            <p className="text-slate-400 leading-relaxed text-lg">Oracle infrastructure has to solve several problems simultaneously.</p>
+            
+            <div className="space-y-6">
+              {[
+                { title: 'DATA QUALITY', desc: 'External information can contain errors, inconsistencies, stale values, or abnormal observations.' },
+                { title: 'SOURCE DEPENDENCY', desc: 'Relying heavily on one source creates a potential single point of failure.' },
+                { title: 'FRAGMENTATION', desc: 'Different applications and networks can end up using different data providers, configurations, or values.' },
+                { title: 'LATENCY', desc: 'Some applications require data to be updated quickly enough to support time-sensitive decisions.' },
+                { title: 'COST', desc: 'Frequent on-chain data publication can become expensive, particularly when the same information must be delivered across multiple networks.' },
+                { title: 'CROSS-CHAIN COMPLEXITY', desc: 'Moving verified information between different blockchain environments introduces additional security and verification requirements.' },
+                { title: 'DATA MANIPULATION', desc: 'Oracle systems must consider economic attacks, malicious inputs, compromised sources, and coordinated manipulation.' }
+              ].map(item => (
+                <div key={item.title} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                  <span className="text-sm font-bold text-slate-300 whitespace-nowrap min-w-[200px]">{item.title}</span>
+                  <span className="text-slate-500">{item.desc}</span>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-white font-medium text-lg pt-4">MONETA Oracle is designed around these challenges from the beginning.</p>
+          </section>
+
+          {/* Our Approach */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">OUR APPROACH</h2>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 font-mono text-xs sm:text-sm text-cyan-400 tracking-widest">
+              <span>SOURCE</span>
+              <ArrowRight className="w-4 h-4 text-slate-600" />
+              <span>VERIFY</span>
+              <ArrowRight className="w-4 h-4 text-slate-600" />
+              <span>CONSENSUS</span>
+              <ArrowRight className="w-4 h-4 text-slate-600" />
+              <span>PROVE</span>
+              <ArrowRight className="w-4 h-4 text-slate-600" />
+              <span>DELIVER</span>
+            </div>
+            
+            <p className="text-slate-400 leading-relaxed text-lg">MONETA Oracle's architecture is designed around a simple principle:</p>
+            <blockquote className="border-l-2 border-cyan-500 pl-6 italic text-xl text-white">
+              «Data should not simply be delivered. It should be validated and verifiable.»
+            </blockquote>
+
+            <div className="space-y-8 pt-4">
+              {[
+                { num: '01', title: 'SOURCE', desc: 'Collect information from multiple relevant external sources. Sources may include market infrastructure, APIs, institutions, specialized providers, sensors, and other approved data providers.' },
+                { num: '02', title: 'VERIFY', desc: 'Evaluate incoming observations for validity, freshness, consistency, and protocol-defined requirements.' },
+                { num: '03', title: 'CONSENSUS', desc: 'Combine validated observations using defined aggregation and consensus mechanisms. The objective is to reduce dependence on a single observation and establish a canonical result according to the protocol\'s rules.' },
+                { num: '04', title: 'PROVE', desc: 'Where appropriate, cryptographic proofs, signatures, commitments, or zero-knowledge systems can be used to establish the integrity of data processing and publication.' },
+                { num: '05', title: 'DELIVER', desc: 'Make the resulting data available to applications across supported blockchain environments.' }
+              ].map(item => (
+                <div key={item.num} className="bg-slate-900/30 p-6 rounded-lg border border-slate-800">
+                  <div className="flex items-center gap-4 mb-3">
+                    <span className="text-cyan-500 font-mono font-bold">{item.num}</span>
+                    <h4 className="text-white font-bold tracking-widest uppercase">{item.title}</h4>
+                  </div>
+                  <p className="text-slate-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* One Feed */}
+          <section className="space-y-6">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">ONE FEED</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">A unified data layer.</h3>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>"One Feed" represents our vision for reducing unnecessary fragmentation.</p>
+              <p>Rather than requiring every application to independently assemble its own collection, validation, aggregation, and publication infrastructure, MONETA Oracle aims to provide a common data layer.</p>
+              <p>Multiple observations can enter the network.<br/>They are processed according to protocol rules.<br/>A canonical result is produced.<br/>Applications can then consume that result through supported interfaces.</p>
+              
+              <div className="py-8 flex flex-col items-center justify-center text-center space-y-4 font-mono font-bold tracking-widest text-sm">
+                <div className="text-slate-500">MANY SOURCES</div>
+                <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                <div className="text-cyan-400 border border-cyan-500/30 px-6 py-2 rounded-full bg-cyan-950/20">ONE VERIFIED DATA LAYER</div>
+                <ArrowRight className="w-5 h-5 text-slate-700 rotate-90" />
+                <div className="text-white">MANY APPLICATIONS</div>
+              </div>
+
+              <p>The objective is consistency without sacrificing source diversity.</p>
+            </div>
+          </section>
+
+          {/* Every Chain */}
+          <section className="space-y-6">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">EVERY CHAIN</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">Data should not be trapped inside one ecosystem.</h3>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>Blockchain infrastructure is increasingly multi-chain.</p>
+              <p>Applications may operate across different execution environments, rollups, high-performance networks, and specialized chains.</p>
+              <p>MONETA Oracle is therefore being designed with interoperability as a core architectural consideration.</p>
+              <p>Our long-term vision is to make verified data available across a broad range of blockchain environments through appropriate verification and delivery mechanisms.</p>
+              
+              <p className="pt-2">This includes exploring architectures based on:</p>
+              <ul className="list-disc pl-6 space-y-2 text-slate-300">
+                <li>Native integrations</li>
+                <li>Cryptographic verification</li>
+                <li>Light-client verification</li>
+                <li>Cross-chain state proofs</li>
+                <li>Efficient message delivery</li>
+                <li>Chain-specific adapters</li>
+              </ul>
+
+              <div className="mt-8 p-6 border-l-2 border-cyan-500 bg-slate-900/50">
+                <h4 className="text-white font-bold mb-2">Important principle</h4>
+                <p className="text-slate-400 text-base">Different blockchain environments have different security models. MONETA Oracle will therefore treat cross-chain delivery as a verification problem, not simply a messaging problem.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Absolute Truth */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">ABSOLUTE TRUTH</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">A bold vision. A rigorous standard.</h3>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>"Absolute Truth" represents the standard MONETA Oracle is striving toward.</p>
+              <p>We do not believe that a cryptographic system can magically determine whether every piece of information in the physical world is objectively true.</p>
+              <p>Instead, our engineering objective is to make the oracle's processes increasingly transparent, verifiable, auditable, and resistant to manipulation.</p>
+              <p>That means focusing on:</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+              {[
+                { title: 'SOURCE INTEGRITY', desc: 'Understanding where information originates.' },
+                { title: 'DATA DIVERSITY', desc: 'Reducing dependence on a single external source.' },
+                { title: 'VALIDATION', desc: 'Checking observations against protocol-defined rules.' },
+                { title: 'CONSENSUS', desc: 'Requiring network participants to reach an agreed result.' },
+                { title: 'CRYPTOGRAPHIC INTEGRITY', desc: 'Protecting data and messages against unauthorized modification.' },
+                { title: 'PROVABLE COMPUTATION', desc: 'Where appropriate, using proof systems to demonstrate that defined computations were performed according to protocol rules.' }
+              ].map(item => (
+                <div key={item.title} className="p-5 border border-slate-800 rounded-lg bg-[#0a0b14]">
+                  <h4 className="font-bold text-white text-sm tracking-widest mb-2">{item.title}</h4>
+                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center space-y-2">
+              <p className="text-slate-500 uppercase tracking-widest text-sm font-bold">The goal is simple:</p>
+              <p className="text-xl text-white">Don't ask applications to blindly trust the data. Give them mechanisms to verify it.</p>
+            </div>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* Hybrid Delivery */}
+          <section className="space-y-6">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">HYBRID DATA DELIVERY</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">Pull when you need it. Push when the protocol requires it.</h3>
+            <div className="space-y-4 text-slate-400 leading-relaxed text-lg">
+              <p>Different applications have different requirements.</p>
+              <p>Some applications may need data on demand. Others may require automatic updates when a value crosses a defined threshold or when a critical state change occurs.</p>
+              <p>MONETA Oracle is exploring a hybrid delivery architecture combining:</p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 pb-4">
+                <div className="p-6 border border-slate-800 rounded-lg">
+                  <h4 className="text-white font-bold tracking-widest uppercase mb-3 text-sm">PULL</h4>
+                  <p className="text-slate-400 text-base">Applications can request or retrieve data when required. This can be useful for applications that prioritize flexibility and efficient data access.</p>
+                </div>
+                <div className="p-6 border border-slate-800 rounded-lg">
+                  <h4 className="text-white font-bold tracking-widest uppercase mb-3 text-sm">PUSH</h4>
+                  <p className="text-slate-400 text-base">The oracle can publish updates according to defined conditions. This can be useful for applications that require continuous or event-driven updates.</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/50 p-6 rounded-lg">
+                <h4 className="text-white font-bold mb-2">THE OBJECTIVE</h4>
+                <p className="text-slate-400">Give developers flexibility rather than forcing every application into one data-delivery model.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* What makes it different */}
+          <section className="space-y-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">WHAT MAKES MONETA ORACLE DIFFERENT</h2>
+            <h3 className="text-2xl font-bold text-white tracking-tight">We are building around the whole oracle problem.</h3>
+            <p className="text-slate-400 leading-relaxed text-lg">MONETA Oracle's design philosophy focuses on combining several capabilities into one infrastructure layer.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-4">
+              {[
+                { title: 'UNIFIED', desc: 'A common infrastructure for multiple data products and applications.' },
+                { title: 'VERIFIABLE', desc: 'Data processing is designed around independent verification rather than blind trust.' },
+                { title: 'MULTI-CHAIN', desc: 'Designed to support multiple blockchain environments.' },
+                { title: 'MODULAR', desc: 'Data sources, aggregation methods, proof systems, and delivery mechanisms can evolve independently.' },
+                { title: 'DEVELOPER-FIRST', desc: 'Complex infrastructure should be accessible through straightforward developer interfaces.' },
+                { title: 'MONETA-NATIVE', desc: 'Designed to integrate deeply with MONETA CHAIN and its wider ecosystem.' }
+              ].map(item => (
+                <div key={item.title}>
+                  <h4 className="font-bold text-white tracking-widest text-sm mb-1">{item.title}</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* Goals & Objectives */}
+          <section className="space-y-16">
+            <div className="space-y-8">
+              <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">OUR GOALS</h2>
+              <h3 className="text-2xl font-bold text-white tracking-tight">Where we're headed.</h3>
+              
+              <div className="space-y-6">
+                {[
+                  { num: '01', title: 'HIGH PERFORMANCE', desc: 'Develop data delivery infrastructure capable of supporting demanding applications and high-frequency data requirements.' },
+                  { num: '02', title: 'COST EFFICIENCY', desc: 'Reduce unnecessary data publication and verification costs through efficient aggregation, batching, and cryptographic techniques.' },
+                  { num: '03', title: 'STRONG CROSS-CHAIN SECURITY', desc: 'Develop cross-chain verification mechanisms that minimize unnecessary trust assumptions.' },
+                  { num: '04', title: 'BROAD DATA COVERAGE', desc: 'Expand beyond traditional price feeds into real-world assets, events, weather, sports, enterprise data, and custom feeds.' },
+                  { num: '05', title: 'RESILIENT INFRASTRUCTURE', desc: 'Build an oracle network designed to remain dependable under failures, attacks, and changing network conditions.' }
+                ].map(item => (
+                  <div key={item.num} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6">
+                    <span className="text-cyan-500 font-mono font-bold mt-0.5">— {item.num}</span>
+                    <div>
+                      <h4 className="font-bold text-white text-sm tracking-widest uppercase mb-1">{item.title}</h4>
+                      <p className="text-slate-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">OUR OBJECTIVES</h2>
+              <h3 className="text-2xl font-bold text-white tracking-tight">Turning the vision into measurable progress.</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                {[
+                  { title: 'TESTNET', desc: 'Develop and test the core oracle architecture with an initial group of data providers and supported blockchain environments.' },
+                  { title: 'MAINNET', desc: 'Deploy a production-ready oracle network after extensive testing, security reviews, and operational validation.' },
+                  { title: 'DATA EXPANSION', desc: 'Gradually expand supported assets and data categories based on demand, quality, and security requirements.' },
+                  { title: 'ECOSYSTEM INTEGRATION', desc: 'Work toward integrations with decentralized applications, infrastructure providers, and blockchain ecosystems.' },
+                  { title: 'ADVANCED PROOFS', desc: 'Introduce cryptographic proof technologies where they provide measurable security, scalability, or verification benefits.' },
+                  { title: 'CROSS-CHAIN INFRASTRUCTURE', desc: 'Develop increasingly trust-minimized mechanisms for delivering verified information across supported networks.' }
+                ].map(item => (
+                  <div key={item.title} className="p-5 bg-[#0a0b14] border border-slate-800 rounded-lg">
+                    <h4 className="font-bold text-white text-sm tracking-widest mb-2">{item.title}</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <div className="w-full h-px bg-slate-800/50"></div>
+
+          {/* The Future */}
+          <section className="space-y-8 text-center pt-8">
+            <h2 className="text-sm font-bold text-cyan-500 tracking-widest uppercase mb-2">THE FUTURE OF ON-CHAIN DATA</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight max-w-2xl mx-auto">
+              The blockchain revolution needs more than blockchains.
+            </h3>
+            
+            <div className="space-y-4 text-slate-400 text-lg max-w-2xl mx-auto">
+              <p>It needs infrastructure capable of connecting decentralized networks with the world around them.</p>
+              <p>MONETA Oracle is being built for that purpose.</p>
+              
+              <div className="py-6 space-y-2 text-white font-medium">
+                <p>From market data to real-world assets.</p>
+                <p>From financial applications to AI.</p>
+                <p>From MONETA CHAIN to a broader multi-chain ecosystem.</p>
+              </div>
+              
+              <p>We are building toward a future where reliable external information can move into blockchain applications with greater transparency, stronger verification, and fewer unnecessary trust assumptions.</p>
+            </div>
+          </section>
+
+          {/* Final CTA */}
+          <section className="text-center pt-12 pb-12">
+            <div className="space-y-6 mb-10">
+              <div className="text-2xl font-bold text-white tracking-tighter">
+                ONE FEED. EVERY CHAIN. ABSOLUTE TRUTH.
+              </div>
+              <div className="text-cyan-400 font-mono text-sm tracking-widest uppercase">
+                MONETA CHAIN ORACLE
+              </div>
+              <p className="text-slate-400">The data layer connecting blockchain to the world.</p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full sm:w-auto bg-cyan-600 hover:bg-cyan-500 text-white h-12 px-8 text-sm font-bold tracking-widest uppercase rounded-md shadow-lg shadow-cyan-500/20 transition-colors">
+                VISIT MONETA CHAIN &rarr;
+              </a>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto border-slate-700 text-slate-300 hover:text-white px-8" onClick={() => onViewChange('developer_portal')}>
+                Build with MONETA
+              </Button>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      {/* 10. FOOTER */}
+      <footer className="border-t border-slate-800/50 bg-[#050608] pt-16 pb-8 px-4 sm:px-6 lg:px-8 mt-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-16">
+          <div className="col-span-2 md:col-span-1 space-y-6">
+            <div className="flex items-center">
+              <img src="/assets/moneta-oracle-logo.png" alt="MONETA CHAIN ORACLE" className="h-[38px] md:h-[48px] w-auto object-contain block" />
+            </div>
+            <p className="text-xs text-slate-500 font-mono tracking-widest uppercase leading-loose">
+              ONE FEED. <br />
+              EVERY CHAIN. <br />
+              ABSOLUTE TRUTH.
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-bold mb-4">Navigation</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><button onClick={() => onViewChange('dashboard')} className="hover:text-white transition-colors">Oracle</button></li>
+              <li><button onClick={() => onViewChange('services')} className="hover:text-white transition-colors">Services</button></li>
+              <li><button onClick={() => onViewChange('live_feeds')} className="hover:text-white transition-colors">Data Feeds</button></li>
+              <li><button onClick={() => onViewChange('developer_portal')} className="hover:text-white transition-colors">Developers</button></li>
+              <li><button onClick={() => onViewChange('security')} className="hover:text-white transition-colors">Security</button></li>
+              <li><button onClick={() => onViewChange('nodes')} className="hover:text-white transition-colors">Ecosystem</button></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-bold mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><button onClick={() => onViewChange('developer_portal')} className="hover:text-white transition-colors">Documentation</button></li>
+              <li><button onClick={() => onViewChange('developer_portal')} className="hover:text-white transition-colors">API</button></li>
+              <li><button onClick={() => onViewChange('system_health')} className="hover:text-white transition-colors">Status</button></li>
+              <li><a href="#" className="hover:text-white transition-colors flex items-center">GitHub <ExternalLink className="w-3 h-3 ml-1" /></a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-bold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><button onClick={() => onViewChange('about')} className="hover:text-white transition-colors">About</button></li>
+              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-4">Social</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><a href="#" className="hover:text-white transition-colors">X (Twitter)</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Telegram</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">YouTube</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Medium</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto border-t border-slate-800/50 pt-8 flex flex-col lg:flex-row items-center justify-between text-xs text-slate-600 gap-4">
+          <div className="flex flex-col items-center lg:items-start space-y-3">
+            <p>© {new Date().getFullYear()} MONETA CHAIN. All rights reserved.</p>
+            <div className="flex flex-wrap justify-center gap-2 text-slate-500">
+              <a href="#" className="hover:text-white transition-colors">X</a>
+              <span>·</span>
+              <a href="#" className="hover:text-white transition-colors">Telegram</a>
+              <span>·</span>
+              <a href="#" className="hover:text-white transition-colors">Discord</a>
+              <span>·</span>
+              <a href="#" className="hover:text-white transition-colors">GitHub</a>
+              <span>·</span>
+              <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+              <span>·</span>
+              <a href="#" className="hover:text-white transition-colors">YouTube</a>
+              <span>·</span>
+              <a href="#" className="hover:text-white transition-colors">Medium</a>
+            </div>
+          </div>
+          <div className="flex items-center mt-4 lg:mt-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 my-auto mr-2 animate-pulse"></span>
+            Systems Operational
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

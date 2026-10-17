@@ -1,0 +1,6 @@
+{
+  "name": "MONETA CHAIN ORACLE",
+  "description": "MONETA CHAIN ORACLE official landing page and dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
