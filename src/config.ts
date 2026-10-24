@@ -1,1 +1,1 @@
-export const MONETA_CHAIN_URL = "https://YOUR-MONETA-CHAIN-WEBSITE-LINK.com";
+export const MONETA_CHAIN_URL = "https://moneta-chain.vercel.app/";

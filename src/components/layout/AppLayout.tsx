@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ViewType } from '../../types';
-import { Globe, Database, Network, Server, ShieldCheck, Settings, Menu, Activity, Radio, Bell, Map, HeartPulse, Code, Boxes, LayoutDashboard, Shield, BrainCircuit, LineChart, FileText, Users, Lock, ChevronDown, ChevronRight } from 'lucide-react';
+import { Globe, Database, Network, Server, ShieldCheck, Settings, Menu, Activity, Radio, Bell, Map, HeartPulse, Code, Boxes, LayoutDashboard, Shield, BrainCircuit, LineChart, FileText, Users, Lock, ChevronDown, ChevronRight, ExternalLink } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Toaster } from '../ui/Toaster';
 import { Footer } from './Footer';
+import { MONETA_CHAIN_URL } from '../../config';
 
 interface AppLayoutProps {
   currentView: ViewType;
@@ -121,6 +122,21 @@ export function AppLayout({ currentView, onViewChange, children }: AppLayoutProp
           ))}
         </nav>
         
+        <div className="p-3 border-t border-slate-800 bg-[#06070a]">
+          <a
+            href={MONETA_CHAIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between w-full px-3 py-2 rounded bg-cyan-950/40 hover:bg-cyan-900/40 border border-cyan-800/40 hover:border-cyan-500/50 text-cyan-400 hover:text-cyan-300 text-xs font-semibold tracking-wide transition-all group"
+          >
+            <span className="flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <span>Official Website</span>
+            </span>
+            <ExternalLink className="w-3 h-3 text-cyan-500 group-hover:text-cyan-300" />
+          </a>
+        </div>
+
         <div className="p-4 border-t border-slate-800 text-[10px] text-slate-600 font-mono uppercase tracking-widest flex items-center justify-between">
           <span>MONETA v2.4</span>
           <span className="flex items-center text-green-500/70"><span className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2 animate-pulse"></span> ONLINE</span>
@@ -166,9 +182,23 @@ export function AppLayout({ currentView, onViewChange, children }: AppLayoutProp
                    </div>
                  </div>
                ))}
-            </nav>
-          </div>
-        )}
+               <div className="pt-4 border-t border-slate-800">
+                 <a
+                   href={MONETA_CHAIN_URL}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex items-center justify-between w-full px-4 py-3 rounded-lg bg-cyan-950/50 border border-cyan-800/50 text-cyan-400 font-semibold text-sm"
+                 >
+                   <span className="flex items-center gap-2">
+                     <Globe className="w-4 h-4 text-cyan-400" />
+                     <span>Official Website</span>
+                   </span>
+                   <ExternalLink className="w-4 h-4 text-cyan-500" />
+                 </a>
+               </div>
+             </nav>
+           </div>
+         )}
 
         {/* Main scrollable area */}
         <main className="flex-1 select-text relative z-10 custom-scrollbar w-full flex flex-col">

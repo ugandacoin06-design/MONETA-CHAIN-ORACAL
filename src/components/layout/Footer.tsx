@@ -1,6 +1,7 @@
 import React from 'react';
 import { ViewType } from '../../types';
 import { ExternalLink } from 'lucide-react';
+import { MONETA_CHAIN_URL } from '../../config';
 
 interface FooterProps {
   onViewChange: (view: ViewType) => void;
@@ -24,6 +25,7 @@ export function Footer({ onViewChange }: FooterProps) {
         <div>
           <h4 className="text-white font-bold mb-4">Navigation</h4>
           <ul className="space-y-2 text-sm text-slate-400">
+            <li><a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors flex items-center">Official Website <ExternalLink className="w-3 h-3 ml-1" /></a></li>
             <li><button onClick={() => onViewChange('dashboard')} className="hover:text-white transition-colors">Oracle</button></li>
             <li><button onClick={() => onViewChange('services')} className="hover:text-white transition-colors">Services</button></li>
             <li><button onClick={() => onViewChange('live_feeds')} className="hover:text-white transition-colors">Data Feeds</button></li>
@@ -69,7 +71,7 @@ export function Footer({ onViewChange }: FooterProps) {
       
       <div className="max-w-7xl mx-auto border-t border-slate-800/50 pt-8 flex flex-col lg:flex-row items-center justify-between text-xs text-slate-600 gap-4">
         <div className="flex flex-col items-center lg:items-start space-y-3">
-          <p>&copy; {new Date().getFullYear()} MONETA CHAIN. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} <a href={MONETA_CHAIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 underline transition-colors">MONETA CHAIN</a>. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-2 text-slate-500">
             <a href="#" className="hover:text-white transition-colors">X</a>
             <span>&middot;</span>
